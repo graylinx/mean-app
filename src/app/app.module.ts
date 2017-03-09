@@ -9,12 +9,18 @@ import { PostsComponent } from './posts/posts.component';
 
 import { PostsService } from './posts.service';
 
+import {Intro} from './intro/intro';
+import {LoginAlumno} from './loginalumno/login'
+
 
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'posts',
-    pathMatch: 'full'
+    component:  Intro
+  },
+  {
+    path: 'alumno',
+    component: LoginAlumno
   },
   {
     path: 'posts',
@@ -25,7 +31,9 @@ const ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    Intro,
+    LoginAlumno
   ],
   imports: [
     BrowserModule,
