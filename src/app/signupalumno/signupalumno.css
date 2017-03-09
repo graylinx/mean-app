@@ -1,0 +1,82 @@
+
+.login-page {
+	background: #3ca2e0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	text-align: center;
+	color: #fff;
+	padding: 3em;
+	}
+	.col-lg-4 {
+		padding :0;
+	}
+	a {
+		cursor: pointer;
+	}
+	.input-lg {
+	    height: 46px;
+	    padding: 10px 16px;
+	    font-size: 18px !important;
+	    line-height: 1.3333333;
+	    border-radius: 0;
+	}
+	.input-underline {
+	    background: 0 0;
+	    border: none;
+	    box-shadow: none;
+	    border-bottom: 2px solid rgba(255,255,255,.5);
+	    color: #FFF;
+	    border-radius: 0;
+	}
+	.input-underline:focus {
+	    border-bottom: 2px solid #fff;
+	    box-shadow: none;
+	}
+	.rounded-btn{
+		-webkit-border-radius: 50px;
+		    	border-radius: 50px;
+		color: rgba(255,255,255,0.8);
+		background: #3ca2e0;
+		border: 2px solid rgba(255,255,255,0.8);
+		font-size: 18px;
+	    line-height: 40px;
+	    padding: 0 25px;
+	}
+	.rounded-btn:hover,.rounded-btn:focus,.rounded-btn:active,.rounded-btn:visited{
+		color: rgba(255,255,255,1);
+		border: 2px solid rgba(255,255,255,1);
+		outline: none;
+	}
+
+	h1 {
+		font-weight: 300;
+		margin-top: 20px;
+    	margin-bottom: 10px;
+    	font-size: 36px;
+		small {
+			color: rgba(255,255,255,0.7);
+			font-size: 20px;
+			font-weight: 300;
+		}
+	}
+
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: white;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	color: white;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	color: white;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	color: white;
+	}
+
+	.form-content {
+		padding: 40px 0;
+	}

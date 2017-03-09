@@ -1,0 +1,26 @@
+  <div class="home">
+    <div class="col-xs-4 col-lg-4">
+      <button type="Submit" class="btn rounded-btn" (click)="logout()">Logout</button>
+    </div>
+    <div class="col-xs-4 col-lg-4 text-center">
+      <img class="marco" [src]="imgsrc">
+    </div>
+    <div class="col-xs-4 col-lg-4 text-right">
+      <button class="btn rounded-btn">Edit</button>
+    </div>
+    <div class="col-xs-4 col-lg-4 col-lg-offset-4 col-xs-offset-4 text-center">
+      <input type="file" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div class="col-xs-4 col-lg-4 col-lg-offset-4 col-xs-offset-4 text-center">
+      <button type="button" class="btn btn-success btn-xs"
+          (click)="sendimg()" >
+      Upload your imgage
+      </button>
+    </div>
+    <div class="col-xs-12 col-lg-12">
+    <h1>{{decodedJwt.id.nombre}} {{decodedJwt.id.apellidos}}</h1>
+      <h3 *ngIf="jwt" class="jwt">Email: {{decodedJwt.Email}}</h3>
+      <h3 *ngIf="jwt" class="jwt">Edad: {{decodedJwt.id.edad}}</h3>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.path}}</code></pre>
+    </div>
+  </div>

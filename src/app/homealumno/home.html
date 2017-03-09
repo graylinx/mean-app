@@ -1,0 +1,68 @@
+  <div class= "busqueda col-lg-4 col-xs-12">
+    <div class="menu col-lg-2 col-xs-2" (click)="open=!open">&#9776;</div>
+    <div class="title col-lg-10 col-xs-10" >ClassCity</div>
+    <div *ngIf= "open" class="sidenav">
+      <a class="closebtn" (click)="open=!open">&times;</a>
+        <img src="src/assets/images/flat-avatar.png"/>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
+        <button type="Submit" (click)="logout()">Logout</button>
+    </div>
+    <form role="form">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="query.Curso" name="curso">
+          <option *ngFor="let p of curso" [value]="p">{{p}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="query.Clase" name="clase">
+          <option *ngFor="let p of asignaturas[curso.indexOf(query.Curso)][query.Curso]" [value]="p">{{p}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="query.Radio" name="radio">
+          <option *ngFor="let p of distancia" [ngValue]="p">{{p}}</option>
+        </select>
+      </div>
+    </form>
+    <button type="submit" (click)="sendquery(query)">Busca</button>
+    <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca a todos los profesores</button>
+    <div *ngFor="let m of profesores; let i = index"  >
+      <img id={{i}} class="col-1-3" src="http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/{{m.path}}"
+      (click)="goDetail(m._id)"/>
+    </div>
+  </div>
+  <div class="direccion col-lg-8 col-xs-12">
+    <input [(ngModel)]="address" (keypress)="keypressHandler($event, address)">
+    <button (click)="initcoor(address)" > Submit</button>
+    <button (click)="position()" > position</button>
+  </div>
+  <div class="mapa col-lg-8 col-xs-12 ">
+  <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
+  [scrollwheel]="false" [zoom] = "13">
+    <sebm-google-map-marker
+            [latitude]="query.Loc.lat"
+            [longitude]="query.Loc.lng"
+            [iconUrl] = "iconUrl">
+    </sebm-google-map-marker>
+    <sebm-google-map-marker *ngFor="let m of profesores; let i = index"
+            (markerClick)= "select(i)"
+            (mouseOver)="changeborder(i)"
+            (mouseOut)= "rechangeborder(i)"
+            [latitude]="m.location.coordinates[0]"
+            [longitude]="m.location.coordinates[1]">
+            <sebm-google-map-info-window (infoWindowClose)= "desselect(i)">
+                <a [routerLink]="['/detail', m._id]">
+                  <strong>{{m.nombre}} {{m.apellidos}}</strong></a>
+                <br>
+                <strong>{{m.edad}}</strong>
+            </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+     <sebm-google-map-circle [latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
+         [radius]="query.Radio"
+         [fillColor]="'red'">
+     </sebm-google-map-circle>
+  </sebm-google-map>
+</div>

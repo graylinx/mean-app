@@ -1,0 +1,43 @@
+<div class="home" *ngIf="profesor">
+  <div class="col-xs-12 col-lg-12">
+    <div class="menu col-lg-2 col-xs-2" (click)="open=!open">&#9776;</div>
+    <div class="title col-lg-10 col-xs-10" >{{profesor.nombre}}</div>
+    <div *ngIf= "open" class="sidenav">
+      <a class="closebtn" (click)="open=!open">&times;</a>
+        <img src="src/assets/images/flat-avatar.png"/>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
+        <button type="Submit" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="col-xs-12 col-lg-12">
+    <img class="col-xs-4 col-lg-4"[src]="imgsrc">
+    <h1 >{{profesor.nombre}} {{profesor.apellidos}}</h1>
+    <h3>Email: {{profesor.asignaturas}}</h3>
+    <h3>Asignatura: {{profesor.curso}}</h3>
+    <h3>Edad: {{profesor.edad}}</h3>
+    <button (click)="notification()"  type="submit"  name="action" >Send Notificación</button>
+  </div>
+  <div class="col-xs-12 col-lg-12">
+    <ul *ngFor="let msg of conversation" style="margin:0">
+        <li >
+          <div >
+              <span  class="userLabel" >{{msg.userName}}:</span>
+              <span style="font-weight:bold">{{msg.text}}</span>
+          </div>
+        </li>
+    </ul>
+    <div>
+      <input  type="text"
+        [(ngModel)]="message"
+        (keypress)="keypressHandler($event)">
+    </div>
+    <button (click)="send()"  type="submit"  name="action" >Send</button>
+  </div>
+
+
+
+
+</div>

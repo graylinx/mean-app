@@ -1,0 +1,54 @@
+<div class="login-page animate">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+    <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"
+    [scrollwheel]="false" [zoom] = "14" (mapClick)="mapClicked($event)">
+      <sebm-google-map-marker
+              [latitude]="profesor.Loc.lat"
+              [longitude]="profesor.Loc.lng">
+      </sebm-google-map-marker>
+    </sebm-google-map>
+    <h1>Registrate Profesor</h1>
+    <form role="form">
+      <div class="form-content">
+        <div class="form-group">
+          <input type="text"  class="form-control input-underline input-lg"
+           [(ngModel)]="profesor.Nombre" name="nombre" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control input-underline input-lg"
+          [(ngModel)]="profesor.Apellidos" name= "Apellidos" placeholder="Apellidos">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-underline input-lg"
+          [(ngModel)]="profesor.Password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="date" class="form-control input-underline input-lg"
+          [(ngModel)]="profesor.Edad" name="edad" placeholder="Edad">
+        </div>
+        <div class="form-group">
+          <input type="mail"  class="form-control input-underline input-lg"
+          [(ngModel)]="profesor.Email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <select class="form-control input-underline input-lg"
+           [(ngModel)]="profesor.Curso" name="curso">
+            <option *ngFor="let p of curso"   [value]="p">{{p}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control input-underline input-lg"
+          [(ngModel)]="profesor.Clase" name="asignatura">
+            <option *ngFor="let q of asignaturas[curso.indexOf(profesor.Curso)][profesor.Curso]"
+            [value]="q">{{q}}</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <button type="submit" class="btn rounded-btn" (click)="registrar(profesor)" >Submit</button>
+
+
+    </div>
+  </div>
+</div>
