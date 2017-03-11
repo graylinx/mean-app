@@ -4,7 +4,7 @@ import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
-const URL = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/uploads/';
+const URL = 'https://www.classcity.tk/app/uploads/';
 
 @Component({
   selector: 'detail',
@@ -76,12 +76,12 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/detail/' + id;
+  let url = 'https://www.classcity.tk/app/detail/' + id;
   this.http.get(url)
     .subscribe(
       response => {
         this.profesor = response.json();
-        this.imgsrc = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/' +  response.json().path;
+        this.imgsrc = 'https://www.classcity.tk/app/' +  response.json().path;
         console.log(this.profesor);
       },
       error => {

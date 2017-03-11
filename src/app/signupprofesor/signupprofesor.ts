@@ -11,7 +11,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080//api/';
+const URL = 'https://www.classcity.tk/app//api/';
 
 @Component({
   selector: 'signupprofesor',
