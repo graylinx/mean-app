@@ -30,7 +30,7 @@
     <button type="submit" (click)="sendquery(query)">Busca</button>
     <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca a todos los profesores</button>
     <div *ngFor="let m of profesores; let i = index"  >
-      <img id={{i}} class="col-1-3" src="http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/{{m.path}}"
+      <img id={{i}} class="col-1-3" src="https://www.classcity.tk/app/{{m.path}}"
       (click)="goDetail(m._id)"/>
     </div>
   </div>

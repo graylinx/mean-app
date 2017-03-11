@@ -17,7 +17,7 @@ export class LoginProfesor {
   constructor(public router: Router, public http: Http) {  }
 
   login(description: ProfesorScheme) {
-    let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/loginprofesor';
+    let url = 'https://www.classcity.tk/app/loginprofesor';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

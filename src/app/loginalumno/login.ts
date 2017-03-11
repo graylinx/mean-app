@@ -16,7 +16,7 @@ export class LoginAlumno {
   constructor(public router: Router, public http: Http) {  }
 
   login(description: AlumnoScheme) {
-    let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/loginalumno';
+    let url = 'https://www.classcity.tk/app/loginalumno';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

@@ -8,7 +8,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL ='http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/uploads/';
+const URL ='https://www.classcity.tk/app/uploads/';
 
 @Component({
   selector: 'home',
@@ -39,7 +39,7 @@ export class HomeProfesor {
 getready(profe: string, alumno: string) {
   console.log(profe, "PENE");
   console.log(alumno, "pene");
-  let url = 'http://localhost:3001/readynotification';
+  let url = 'https://www.classcity.tk/app/readynotification';
   let body = JSON.stringify({'profe': profe, "alumno": alumno});
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
   let options = new RequestOptions({ headers: headers });

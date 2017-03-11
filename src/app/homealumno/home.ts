@@ -84,7 +84,7 @@ export class HomeAlumno {
    }
 
   sendquery(description: QueryScheme) {
-    let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/profesores';
+    let url = 'https://www.classcity.tk/app/profesores';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -102,7 +102,7 @@ export class HomeAlumno {
   }
 
   getallprof() {
-    let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/profesores';
+    let url = 'https://www.classcity.tk/app/profesores';
     this.http.get(url).
       subscribe(
        response => {
