@@ -58,7 +58,7 @@ export class SignupProfesor implements OnInit {
   };
 
   registrar(description: ProfesorScheme) {
-    let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/registerprofesor';
+    let url = 'https://www.classcity.tk/app/registerprofesor';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

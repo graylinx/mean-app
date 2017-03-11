@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
 });
 
 // Get all posts
-router.get('/posts', (req, res) => {
+router.get('/post', (req, res) => {
+  console.log("CACA");
   // Get posts from the mock api
   // This should ideally be replaced with a service that connects to MongoDB
   axios.get(`${API}/posts`)

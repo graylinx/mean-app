@@ -28,7 +28,7 @@ export class HomeProfesor {
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
-    this.imgsrc = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/' +  this.decodedJwt.id.path;
+    this.imgsrc = 'https://www.classcity.tk:8080/app/' +  this.decodedJwt.id.path;
   }
 
   ngOnInit(): void {
